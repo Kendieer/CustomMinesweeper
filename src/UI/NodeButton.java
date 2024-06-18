@@ -1,7 +1,7 @@
 package ui;
 
-import gameBase.elements.NodeTypes;
-import gameBase.MineSweeper;
+import game.base.elements.NodeTypes;
+import game.base.MineSweeper;
 
 import javax.swing.*;
 import java.awt.*;
