@@ -1,4 +1,4 @@
-# Custom Minesweeper V1.0
+# Custom Minesweeper V1.2
 
 > Just Copy Windows Minesweeper
 
