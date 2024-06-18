@@ -33,7 +33,7 @@
   核心公式：
 
   $$
-  f(x)=[f(x-1)\times t +c] \,\mod \,p (其中,t,c,p为质数)
+  f(x)=[f(x-1)\times t +c] \mod p (t,c,p为质数)
   $$
 
 - **MapGenerator**
