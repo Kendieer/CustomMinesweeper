@@ -2,7 +2,7 @@ package game.base.elements;
 
 
 import game.base.GameLogic;
-import ui.WindowPanel;
+import game.swingUI.WindowPanel;
 
 import java.util.Objects;
 

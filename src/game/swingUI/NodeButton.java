@@ -1,4 +1,4 @@
-package ui;
+package game.swingUI;
 
 import game.base.elements.NodeTypes;
 import game.base.MineSweeper;

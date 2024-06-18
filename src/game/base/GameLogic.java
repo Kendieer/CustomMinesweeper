@@ -3,7 +3,7 @@ package game.base;
 import game.base.elements.*;
 import game.base.util.*;
 import game.saves.GameSave;
-import ui.*;
+import game.swingUI.*;
 
 import java.awt.*;
 

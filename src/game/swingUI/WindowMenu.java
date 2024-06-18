@@ -1,4 +1,4 @@
-package ui;
+package game.swingUI;
 
 import game.base.MineSweeper;
 import game.base.util.GameDefaultSettings;

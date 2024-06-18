@@ -2,8 +2,8 @@ package game.base;
 
 import game.base.util.GameDefaultSettings;
 import game.base.util.LinearRandom;
-import ui.WindowFrame;
-import ui.WindowSeedLabel;
+import game.swingUI.WindowFrame;
+import game.swingUI.WindowSeedLabel;
 
 public final class MineSweeper {
     private MineSweeper(){}

@@ -2,8 +2,8 @@ package game.saves;
 
 import game.base.GameLogic;
 import game.base.MineSweeper;
-import ui.WindowPanel;
-import ui.WindowSeedLabel;
+import game.swingUI.WindowPanel;
+import game.swingUI.WindowSeedLabel;
 
 import java.io.*;
 
