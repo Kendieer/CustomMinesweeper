@@ -34,9 +34,9 @@
   //new instance
   LinearRandom linearRandom = new LinearRandom();
   // get value
-  System.out.println(linearRandom.next());
-  System.out.println(linearRandom.next(20));
-  System.out.println(linearRandom.next(20,100));
+  System.out.println(linearRandom.next()); // get [0,65536)
+  System.out.println(linearRandom.next(20)); // get [0,20)
+  System.out.println(linearRandom.next(20,100)); // get [20,100)
   ```
 
 
