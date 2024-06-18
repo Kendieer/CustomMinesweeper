@@ -16,6 +16,16 @@
 
 **随机种子**：当使用了固定种子并且首个点击节点相同时，那么生成的地图就相同，若不满足任意条件，则地图不同，随机种子在每局点击第一个节点后才生效，并非创建游戏时。
 
+## How to use?
+
+首先，你需要 Java 21 作为环境基础，倘若你没有 Java 21，请移步至 [Java 21 Downloads](https://www.oracle.com/java/technologies/downloads/#java21) 进行安装下载。
+
+运行时，需要在运行台处运行:
+
+```cmd
+java -jre [Jar包路径]
+```
+
 ## Updates
 
 ### V1.3
