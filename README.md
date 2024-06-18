@@ -10,7 +10,7 @@
 
 ## Links
 
-> [Github](https://github.com/Kendieer/CustomMinesweeper)
+> [GitHub](https://github.com/Kendieer/CustomMinesweeper)
 > [Notion Page](https://boatneck-golf-2b4.notion.site/Minesweeper-6d0e47bc68254cc3900ba74a51b0aecf?pvs=4)
 
 ## Introduction
@@ -21,3 +21,23 @@
 除此以外，还有可以读档、存档功能，以便中途退出游戏。
 
 > **关于随机种子**：当使用了固定种子并且首个点击节点相同时，那么生成的地图就相同，若不满足任意条件，则地图不同，随机种子在每局点击第一个节点后才生效，并非创建游戏时。
+
+### 自定义API & 工具类
+
+- **LinearRandom**
+
+  线性随机数生成器，用于生成随机数，因使用线性随机数生成方式而取名。
+
+  该类为API类，允许创建对象，其对象有着一个内置的随机种子。
+
+  核心公式：
+
+  $$
+  f(x)=[f(x-1)\times t +c]\>mod \>p \\其中,t,c,p为质数
+  $$
+
+- **MapGenerator**
+
+  地图生成器，用于随机分布地雷和生成对应节点类型。
+
+  地图生成依赖于随机数生成器。
