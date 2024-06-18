@@ -1,6 +1,6 @@
 package game.swingUI;
 
-import game.base.MineSweeper;
+import game.base.MinesweeperSystem;
 import game.base.util.GameDefaultSettings;
 import game.saves.SavesProcessor;
 
@@ -40,7 +40,7 @@ public final class WindowMenu {
         JMenuItem saveGame = new JMenuItem("Save Game");
         JMenuItem loadGame = new JMenuItem("Load Game");
 
-        saveGame.addActionListener( e -> SavesProcessor.saveGame( MineSweeper.getMinesweeper() ) );
+        saveGame.addActionListener( e -> SavesProcessor.saveGame( MinesweeperSystem.getMinesweeper() ) );
         loadGame.addActionListener( e -> {
             JFileChooser fileChooser = new JFileChooser("Saves");
             fileChooser.addChoosableFileFilter( new FileNameExtensionFilter( "Minesweeper data", "data" ) );
@@ -59,7 +59,7 @@ public final class WindowMenu {
     private void initializeGameMenu(JMenu gameMenu){
         // restart
         JMenuItem restart = new JMenuItem("Restart");
-        restart.addActionListener( e -> MineSweeper.newMinesweeper() );
+        restart.addActionListener( e -> MinesweeperSystem.newMinesweeper() );
 
         // restart with
         JMenu restartWith = new JMenu("Restart With");
@@ -67,26 +67,26 @@ public final class WindowMenu {
             // difficulty
             JMenuItem easy = new JMenuItem("Easy");
             easy.addActionListener( e -> {
-                MineSweeper.width = GameDefaultSettings.Presets.EASY.GAME_WIDTH;
-                MineSweeper.height = GameDefaultSettings.Presets.EASY.GAME_HEIGHT;
-                MineSweeper.minesCount = GameDefaultSettings.Presets.EASY.MINES_COUNT;
-                MineSweeper.newMinesweeper();
+                MinesweeperSystem.width = GameDefaultSettings.Presets.EASY.GAME_WIDTH;
+                MinesweeperSystem.height = GameDefaultSettings.Presets.EASY.GAME_HEIGHT;
+                MinesweeperSystem.minesCount = GameDefaultSettings.Presets.EASY.MINES_COUNT;
+                MinesweeperSystem.newMinesweeper();
             } );
             restartWith.add( easy );
             JMenuItem normal = new JMenuItem("Normal");
             normal.addActionListener( e -> {
-                MineSweeper.width = GameDefaultSettings.Presets.NORMAL.GAME_WIDTH;
-                MineSweeper.height = GameDefaultSettings.Presets.NORMAL.GAME_HEIGHT;
-                MineSweeper.minesCount = GameDefaultSettings.Presets.NORMAL.MINES_COUNT;
-                MineSweeper.newMinesweeper();
+                MinesweeperSystem.width = GameDefaultSettings.Presets.NORMAL.GAME_WIDTH;
+                MinesweeperSystem.height = GameDefaultSettings.Presets.NORMAL.GAME_HEIGHT;
+                MinesweeperSystem.minesCount = GameDefaultSettings.Presets.NORMAL.MINES_COUNT;
+                MinesweeperSystem.newMinesweeper();
             } );
             restartWith.add( normal );
             JMenuItem hard = new JMenuItem("Hard");
             hard.addActionListener( e -> {
-                MineSweeper.width = GameDefaultSettings.Presets.HARD.GAME_WIDTH;
-                MineSweeper.height = GameDefaultSettings.Presets.HARD.GAME_HEIGHT;
-                MineSweeper.minesCount = GameDefaultSettings.Presets.HARD.MINES_COUNT;
-                MineSweeper.newMinesweeper();
+                MinesweeperSystem.width = GameDefaultSettings.Presets.HARD.GAME_WIDTH;
+                MinesweeperSystem.height = GameDefaultSettings.Presets.HARD.GAME_HEIGHT;
+                MinesweeperSystem.minesCount = GameDefaultSettings.Presets.HARD.MINES_COUNT;
+                MinesweeperSystem.newMinesweeper();
             } );
             restartWith.add( hard );
 
@@ -150,10 +150,10 @@ public final class WindowMenu {
                             minesCount.setBackground( Color.WHITE );
                         }
                     } else {
-                        MineSweeper.width = Integer.parseInt( widthText );
-                        MineSweeper.height = Integer.parseInt( heightText );
-                        MineSweeper.minesCount = Integer.parseInt( minesCountText );
-                        MineSweeper.newMinesweeper();
+                        MinesweeperSystem.width = Integer.parseInt( widthText );
+                        MinesweeperSystem.height = Integer.parseInt( heightText );
+                        MinesweeperSystem.minesCount = Integer.parseInt( minesCountText );
+                        MinesweeperSystem.newMinesweeper();
                         dialog.dispose(); // exit dialog
                     }
                 }

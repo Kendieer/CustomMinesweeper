@@ -5,8 +5,10 @@ import game.base.util.LinearRandom;
 import game.swingUI.WindowFrame;
 import game.swingUI.WindowSeedLabel;
 
-public final class MineSweeper {
-    private MineSweeper(){}
+public final class MinesweeperSystem {
+
+    public static final String Version = "V1.2";
+    private MinesweeperSystem (){}
 
     private static GameLogic minesweeper = new GameLogic();
 

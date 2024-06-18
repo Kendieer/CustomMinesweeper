@@ -1,7 +1,7 @@
 package game.swingUI;
 
 import game.base.GameLogic;
-import game.base.MineSweeper;
+import game.base.MinesweeperSystem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +25,7 @@ public final class WindowPanel {
         PANEL.add( seedLabel );
         PANEL.add( WindowSeedLabel.getStaticSeedLabel().getSeedLabel() );
         PANEL.add( WindowSeedLabel.getStaticSeedLabel().getSeedConfirmButton() );
-        newGame( MineSweeper.getMinesweeper() );
+        newGame( MinesweeperSystem.getMinesweeper() );
     }
 
     public void clearOldButtons(){
@@ -60,6 +60,15 @@ public final class WindowPanel {
 
     public JButton getButton(int x,int y){
         return buttons[x][y].getButton();
+    }
+    public boolean getButtonMarked(int x,int y){
+        return buttons[x][y].getMarked();
+    }
+    public void markButton(int x,int y){
+        if (buttons[x][y].getMarked()){
+            return;
+        }
+        buttons[x][y].markButton();
     }
 
     public void disEnabledButton(int x,int y){

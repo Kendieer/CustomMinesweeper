@@ -182,11 +182,16 @@ public final class GameLogic {
     }
 
     public GameSave exportSave(){
+        if (status == GameStatus.NoCache){
+            return null;
+        }
         boolean[] isPublicNodes = new boolean[WIDTH * HEIGHT];
+        boolean[] isMarkedNodes = new boolean[WIDTH * HEIGHT];
         for ( int i = 0; i < WIDTH * HEIGHT; i++ ) {
             isPublicNodes[i] = nodes[i/WIDTH][i%WIDTH].isPublic();
+            isMarkedNodes[ i ] = WindowPanel.getStaticPanel().getButtonMarked( i / WIDTH, i % WIDTH );
         }
-        return new GameSave( MINES_COUNT, WIDTH, HEIGHT, getGameSeed(), isPublicNodes, firstStepPosition.X, firstStepPosition.Y );
+        return new GameSave( MINES_COUNT, WIDTH, HEIGHT, getGameSeed(), isPublicNodes, isMarkedNodes, firstStepPosition.X, firstStepPosition.Y );
     }
 
     public NodeTypes getNodeStatus(int x,int y){

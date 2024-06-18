@@ -1,8 +1,8 @@
-import game.base.MineSweeper;
+import game.base.MinesweeperSystem;
 
 public class Main {
     public static void main ( String[] args ) {
-        MineSweeper.SystemRunner();
+        MinesweeperSystem.SystemRunner();
     }
 
 }

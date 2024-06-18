@@ -1,13 +1,17 @@
 package game.swingUI;
 
 import game.base.elements.NodeTypes;
-import game.base.MineSweeper;
+import game.base.MinesweeperSystem;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class NodeButton {
     private final JButton button = new JButton();
+
+    private boolean marked = false;
 
     private final int X,Y;
 
@@ -19,11 +23,35 @@ public class NodeButton {
         button.setBackground( new Color( 255,255,255 ) );
         button.setBounds( BUTTON_WIDTH * y + 10,BUTTON_HEIGHT * x + 40 ,BUTTON_WIDTH,BUTTON_HEIGHT);
         button.setMargin( new Insets( 0,0,0,0 ) );
-        button.addActionListener( e -> {
-                updateButton();
-//                System.out.println(X+" " +Y);
+        button.addMouseListener( new MouseAdapter() {
+            @Override
+            public void mouseClicked ( MouseEvent e ) {
+                if (!button.isEnabled()){
+                    return;
+                }
+                if ( SwingUtilities.isLeftMouseButton( e ) ){
+                    if (marked){
+                        markButton(); // cancel mark
+                        return;
+                    }
+                    updateButton();
+                } else {
+                    markButton(); // mark
+                }
+            }
+
         } );
         button.updateUI();
+    }
+    void markButton () {
+        marked = !marked;
+        if (marked){
+            button.setBackground( new Color( 255,200,202 ) );
+            button.setText( "!" );
+        } else {
+            button.setBackground( new Color( 255,255,255 ) );
+            button.setText( "" );
+        }
     }
 
     public void setButtonLocation ( int posX, int posY){
@@ -32,15 +60,15 @@ public class NodeButton {
     }
 
     public void updateButton(){
-        MineSweeper.getMinesweeper().clickNode( X,Y );
+        MinesweeperSystem.getMinesweeper().clickNode( X,Y );
         button.setFont( new Font( "Console", Font.BOLD, 18 ) );
-        switch ( MineSweeper.getMinesweeper().getNodeStatus(X,Y) ){
+        switch ( MinesweeperSystem.getMinesweeper().getNodeStatus(X,Y) ){
             case NodeTypes.Empty -> button.setBackground( new Color( 128,128,128 ) );
             case NodeTypes.Number -> {
 //                button.setBackground( new Color( 201,201,201 ) );
-                button.setText( Byte.toString( MineSweeper.getMinesweeper().getNodeValue( X,Y ) ) );
+                button.setText( Byte.toString( MinesweeperSystem.getMinesweeper().getNodeValue( X,Y ) ) );
                 button.setBackground(
-                    (switch ( MineSweeper.getMinesweeper().getNodeValue( X,Y ) ){
+                    (switch ( MinesweeperSystem.getMinesweeper().getNodeValue( X,Y ) ){
                         case 1 -> new Color(0xAFDF0F);
                         case 2 -> new Color(0x3F3FFF);
                         case 3 -> new Color(0xFF3F3F);
@@ -55,7 +83,6 @@ public class NodeButton {
             case NodeTypes.Mine -> {
                 button.setBackground( new Color( 255,0,0 ) );
                 button.setText( "*" );
-                button.setForeground( new Color( 0xFFFFFF ) );
             }
             case null -> {
                 return;
@@ -70,13 +97,12 @@ public class NodeButton {
         return button;
     }
 
+    public boolean getMarked(){
+        return marked;
+    }
+
     public void disEnabled(){
         button.setEnabled( false );
-        try {
-            button.removeMouseListener(button.getMouseListeners()[0]);
-        } catch ( ArrayIndexOutOfBoundsException e ) {
-            return;
-        }
     }
 
 }

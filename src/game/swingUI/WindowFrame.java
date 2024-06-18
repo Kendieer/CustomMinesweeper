@@ -1,7 +1,7 @@
 package game.swingUI;
 
 import game.base.GameLogic;
-import game.base.MineSweeper;
+import game.base.MinesweeperSystem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
 
 public final class WindowFrame {
 
-    private static final WindowFrame STATIC_FRAME = new WindowFrame("Minesweeper");
+    private static final WindowFrame STATIC_FRAME = new WindowFrame("Minesweeper " + MinesweeperSystem.Version);
 
     private JFrame frame = null;
 
@@ -34,7 +34,7 @@ public final class WindowFrame {
         } );
         frame.setJMenuBar( WindowMenu.getStaticMenu().getMenuBar() );
         frame.add( WindowPanel.getStaticPanel().getPanel() );
-        newGame( MineSweeper.getMinesweeper() );
+        newGame( MinesweeperSystem.getMinesweeper() );
         frame.setLocation( 240,240 );
     }
 
@@ -52,7 +52,7 @@ public final class WindowFrame {
     public void updateFrame(int width,int height){
         this.frame.setMinimumSize( new Dimension(width,height) );
         this.frame.setSize( new Dimension(width+40,height+40) );
-        WindowPanel.getStaticPanel().newGame( MineSweeper.getMinesweeper() );
+        WindowPanel.getStaticPanel().newGame( MinesweeperSystem.getMinesweeper() );
         frame.setVisible( true );
     }
 
@@ -67,5 +67,26 @@ public final class WindowFrame {
     @Override
     public int hashCode () {
         return Runtime.getRuntime().hashCode();
+    }
+
+    public void showWarningDialog(String message){
+        JDialog dialog = new JDialog(this.frame, "Warning");
+        dialog.setMinimumSize( new Dimension(220,180) );
+        dialog.setLocationRelativeTo( this.frame );
+        dialog.setLayout( null );
+        dialog.setDefaultCloseOperation( JDialog.DISPOSE_ON_CLOSE );
+        // label
+        Label label = new Label( message );
+        label.setBounds( 10,10,200,30 );
+        label.setFont( new Font("Console", Font.BOLD, 16) );
+        label.setAlignment( Label.CENTER );
+        dialog.add( label );
+        // button
+        JButton confirmButton = new JButton("OK");
+        confirmButton.setBounds( 75,85 ,50,20 );
+        confirmButton.setMargin( new Insets( 0,0,0,0 ) );
+        confirmButton.addActionListener( e -> dialog.dispose() );
+        dialog.add( confirmButton );
+        dialog.setVisible( true );
     }
 }
