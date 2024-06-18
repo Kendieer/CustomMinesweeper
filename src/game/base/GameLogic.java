@@ -51,7 +51,7 @@ public final class GameLogic {
             randomDataGenerator = new LinearRandom();
             return;
         }
-        if (str.matches( "-?[0-9]+" )){
+        if (str.matches( "-?[0-9]{1,17}" )){
             setSeed( Long.parseLong( str ) );
         } else {
             setSeed( str.hashCode() );
@@ -79,7 +79,7 @@ public final class GameLogic {
             if ( randomDataGenerator == null ) {
                 randomDataGenerator = new LinearRandom();
             }
-            MapCreator.spawnMap(nodes,MINES_COUNT,randomDataGenerator,firstStepPosition);
+            MapCreator.generateMap(nodes,MINES_COUNT,randomDataGenerator,firstStepPosition);
             status = GameStatus.Running;
             restSaveNodeCount = WIDTH * HEIGHT - MINES_COUNT;
             WindowSeedLabel.getStaticSeedLabel().getSeedLabel().setText( Long.toString(getGameSeed()) );

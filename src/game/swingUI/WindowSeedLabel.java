@@ -15,7 +15,7 @@ public final class WindowSeedLabel {
     private void initializeSettings(){
         // seed label
         SEED_LABEL.setMargin( new Insets( 0,0,0,0 ) );
-        SEED_LABEL.setFont( new Font( "Minecraft AE", Font.BOLD, 10 ) );
+        SEED_LABEL.setFont( new Font( "Console", Font.BOLD, 14 ) );
         SEED_LABEL.setEnabled( true );
         SEED_LABEL.setBounds( 80,10,170,20 );
         SEED_LABEL.setVisible( true );

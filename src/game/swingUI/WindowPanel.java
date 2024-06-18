@@ -19,7 +19,7 @@ public final class WindowPanel {
         PANEL.setLayout( null );
         JLabel seedLabel = new JLabel( "Seed : " );
         seedLabel.setBounds( 10,10,100,20 );
-        seedLabel.setFont( new Font( "Minecraft AE", Font.PLAIN, 14 ) );
+        seedLabel.setFont( new Font( "Console", Font.BOLD, 14 ) );
         seedLabel.getInsets( new Insets( 0, 0, 0, 0 ) );
         // add seed
         PANEL.add( seedLabel );

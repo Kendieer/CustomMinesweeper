@@ -30,6 +30,7 @@ public class SavesProcessor {
             WindowFrame.getStaticFrame().showWarningDialog( "Please Start Game!" );
             return;
         }
+        new File( "Saves" ).mkdir();
         try ( ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream( "Saves\\" + game.getGameSeed() + "HC" + game.hashCode() + ".data" ) ) ) {
             oos.writeObject( save );
         } catch ( Exception e ){
@@ -40,8 +41,15 @@ public class SavesProcessor {
 
     public static void loadGame( File file ){
         GameLogic game;
+        GameSave save = null;
         try ( ObjectInputStream ois = new ObjectInputStream( new FileInputStream( file ) ) ) {
-            GameSave save = (GameSave) ois.readObject();
+            save = ( GameSave ) ois.readObject();
+        } catch ( Exception e ){
+            System.out.println("Load Failed");
+            WindowFrame.getStaticFrame().showWarningDialog( "Failed to load this Save!" );
+            return;
+        }
+        try {
             game = new GameLogic( save.HEIGHT, save.WIDTH, save.MINES_COUNT );
             game.setSeed( save.RANDOM_MAP_SEED );
             WindowSeedLabel.getStaticSeedLabel().getSeedConfirmButton().setSelected( true );
@@ -56,8 +64,8 @@ public class SavesProcessor {
                     WindowPanel.getStaticPanel().markButton( i / save.WIDTH, i % save.WIDTH );
                 }
             }
-        } catch ( Exception e ){
-            System.out.println("Load Failed");
+        } catch ( Exception e ) {
+            System.out.println("Generate Map Failed");
             return;
         }
     }

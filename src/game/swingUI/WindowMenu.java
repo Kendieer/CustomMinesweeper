@@ -129,22 +129,22 @@ public final class WindowMenu {
                     String heightText = height.getText();
                     String minesCountText = minesCount.getText();
                     if (
-                            !widthText.matches( "[1-9]([0-9])*" ) ||
-                            !heightText.matches( "[1-9]([0-9])*" ) ||
-                            !minesCountText.matches( "[0-9]+" ) ||
+                            !widthText.matches( "[1-9]([0-9]?)" ) ||
+                            !heightText.matches( "[1-9]([0-9]?)" ) ||
+                            !minesCountText.matches( "[0-9]{0,4}" ) ||
                             widthText.isEmpty() ||
                             heightText.isEmpty() ||
                             minesCountText.isEmpty()
                     ){
-                        if (!widthText.matches( "[1-9]([0-9])*" ) || widthText.isEmpty()){
+                        if (!widthText.matches( "[1-9]([0-9]{0,2})" ) || widthText.isEmpty()){
                             width.setBackground( new Color( 0xdf3f3f ) );
                         } else {
                             width.setBackground( Color.WHITE );
                         }
-                        if (!heightText.matches( "[1-9]([0-9])*" ) || heightText.isEmpty()){
+                        if (!heightText.matches( "[1-9]([0-9]{0,2})" ) || heightText.isEmpty()){
                             height.setBackground( new Color( 0xdf3f3f ) );
                         }
-                        if (!minesCountText.matches( "([0-9])+" ) || minesCountText.isEmpty()){
+                        if (!minesCountText.matches( "([0-9]{0,4})" ) || minesCountText.isEmpty()){
                             minesCount.setBackground( new Color( 0xdf3f3f ) );
                         } else {
                             minesCount.setBackground( Color.WHITE );

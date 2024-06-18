@@ -7,7 +7,7 @@ import game.swingUI.WindowSeedLabel;
 
 public final class MinesweeperSystem {
 
-    public static final String Version = "V1.2";
+    public static final String Version = "V1.3";
     private MinesweeperSystem (){}
 
     private static GameLogic minesweeper = new GameLogic();

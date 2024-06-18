@@ -48,11 +48,11 @@ public final class MapCreator {
      * 固定种子
      * @param randomDataGenerator 随机数生成器
      */
-    public static void spawnMap ( Node[][] nodes, int minesCount, LinearRandom randomDataGenerator, Position firstStepPosition){
+    public static void generateMap ( Node[][] nodes, int minesCount, LinearRandom randomDataGenerator, Position firstStepPosition){
         int height = nodes.length;
         int width = nodes[0].length;
         byte[] result = getRandomSequence(width, height, minesCount,randomDataGenerator, firstStepPosition);
-        // spawn
+        // generate
         for ( int i = 0; i < height; i++ ) {
             for ( int j = 0; j < width; j++ ) {
                 nodes[i][j] = (switch ( result[i*width+j] ){
@@ -66,27 +66,28 @@ public final class MapCreator {
         }
     }
 
-    private static void swapNode( byte[] array, int index1, int index2){
+    private static int swapNode( byte[] array, int index1, int index2){
         try {
             byte temp = array[ index1 ];
             array[ index1 ] = array[ index2 ];
             array[ index2 ] = temp;
         } catch ( ArrayIndexOutOfBoundsException e ) {
-            return;
+            return 0;
         }
+        return 1;
     }
 
     private static void importFirstClickNode ( byte[] sequence , Position firstStepPosition, int width, int height ) {
         int p = 0;
-        swapNode( sequence, (firstStepPosition.X + 1) * width + firstStepPosition.Y + 1, p++);
-        swapNode( sequence, (firstStepPosition.X + 1) * width + firstStepPosition.Y , p++);
-        swapNode( sequence, (firstStepPosition.X + 1) * width + firstStepPosition.Y - 1 , p++);
-        swapNode( sequence, ( firstStepPosition.X ) * width + firstStepPosition.Y + 1, p++ );
-        swapNode( sequence, (firstStepPosition.X) * width + firstStepPosition.Y , p++);
-        swapNode( sequence, (firstStepPosition.X) * width + firstStepPosition.Y - 1 , p++);
-        swapNode( sequence, (firstStepPosition.X - 1) * width + firstStepPosition.Y + 1, p++);
-        swapNode( sequence, (firstStepPosition.X - 1) * width + firstStepPosition.Y , p++);
-        swapNode( sequence, (firstStepPosition.X - 1) * width + firstStepPosition.Y - 1 , p++);
+        p += swapNode( sequence, (firstStepPosition.X + 1) * width + firstStepPosition.Y + 1, p);
+        p += swapNode( sequence, (firstStepPosition.X + 1) * width + firstStepPosition.Y , p);
+        p += swapNode( sequence, (firstStepPosition.X + 1) * width + firstStepPosition.Y - 1 , p);
+        p += swapNode( sequence, ( firstStepPosition.X ) * width + firstStepPosition.Y + 1, p );
+        p += swapNode( sequence, (firstStepPosition.X) * width + firstStepPosition.Y , p);
+        p += swapNode( sequence, (firstStepPosition.X) * width + firstStepPosition.Y - 1 , p);
+        p += swapNode( sequence, (firstStepPosition.X - 1) * width + firstStepPosition.Y + 1, p);
+        p += swapNode( sequence, (firstStepPosition.X - 1) * width + firstStepPosition.Y , p);
+        p += swapNode( sequence, (firstStepPosition.X - 1) * width + firstStepPosition.Y - 1 , p);
     }
 
     /**
