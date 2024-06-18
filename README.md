@@ -22,7 +22,7 @@
 
 > **关于随机种子**：当使用了固定种子并且首个点击节点相同时，那么生成的地图就相同，若不满足任意条件，则地图不同，随机种子在每局点击第一个节点后才生效，并非创建游戏时。
 
-### 自定义API & 工具类
+### 自定义API & 工具类 (Maybe it's useful?)
 
 - **LinearRandom**
 
@@ -30,14 +30,18 @@
 
   该类为API类，允许创建对象，其对象有着一个内置的随机种子。
 
-  核心公式：
+  ```java
+  //new instance
+  LinearRandom linearRandom = new LinearRandom();
+  // get value
+  System.out.println(linearRandom.next());
+  System.out.println(linearRandom.next(20));
+  System.out.println(linearRandom.next(20,100));
+  ```
 
-  $$
-  f(x)=[f(x-1)\times t +c] \mod p (t,c,p为质数)
-  $$
 
 - **MapGenerator**
 
   地图生成器，用于随机分布地雷和生成对应节点类型。
-
+- 
   地图生成依赖于随机数生成器。
