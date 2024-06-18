@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
 
 public final class WindowFrame {
 
-    private static final WindowFrame STATIC_FRAME = new WindowFrame("Minesweeper");
+    private static final WindowFrame STATIC_FRAME = new WindowFrame("Minesweeper " + MineSweeper.Version);
 
     private JFrame frame = null;
 

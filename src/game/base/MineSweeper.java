@@ -6,6 +6,8 @@ import game.swingUI.WindowFrame;
 import game.swingUI.WindowSeedLabel;
 
 public final class MineSweeper {
+
+    public static final String Version = "V1.1";
     private MineSweeper(){}
 
     private static GameLogic minesweeper = new GameLogic();

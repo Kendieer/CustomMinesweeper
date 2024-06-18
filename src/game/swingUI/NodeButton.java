@@ -5,9 +5,13 @@ import game.base.MineSweeper;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class NodeButton {
     private final JButton button = new JButton();
+
+    private boolean marked = false;
 
     private final int X,Y;
 
@@ -19,11 +23,35 @@ public class NodeButton {
         button.setBackground( new Color( 255,255,255 ) );
         button.setBounds( BUTTON_WIDTH * y + 10,BUTTON_HEIGHT * x + 40 ,BUTTON_WIDTH,BUTTON_HEIGHT);
         button.setMargin( new Insets( 0,0,0,0 ) );
-        button.addActionListener( e -> {
-                updateButton();
-//                System.out.println(X+" " +Y);
+        button.addMouseListener( new MouseAdapter() {
+            @Override
+            public void mouseClicked ( MouseEvent e ) {
+                if (!button.isEnabled()){
+                    return;
+                }
+                if ( SwingUtilities.isLeftMouseButton( e ) ){
+                    if (marked){
+                        markButton(); // cancel mark
+                        return;
+                    }
+                    updateButton();
+                } else {
+                    markButton(); // mark
+                }
+            }
+
         } );
         button.updateUI();
+    }
+    private void markButton () {
+        marked = !marked;
+        if (marked){
+            button.setBackground( new Color( 255,200,202 ) );
+            button.setText( "!" );
+        } else {
+            button.setBackground( new Color( 255,255,255 ) );
+            button.setText( "" );
+        }
     }
 
     public void setButtonLocation ( int posX, int posY){
@@ -55,7 +83,6 @@ public class NodeButton {
             case NodeTypes.Mine -> {
                 button.setBackground( new Color( 255,0,0 ) );
                 button.setText( "*" );
-                button.setForeground( new Color( 0xFFFFFF ) );
             }
             case null -> {
                 return;
@@ -72,11 +99,6 @@ public class NodeButton {
 
     public void disEnabled(){
         button.setEnabled( false );
-        try {
-            button.removeMouseListener(button.getMouseListeners()[0]);
-        } catch ( ArrayIndexOutOfBoundsException e ) {
-            return;
-        }
     }
 
 }
