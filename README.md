@@ -2,12 +2,6 @@
 
 > Just Copy Windows Minesweeper
 
-## Tools
-
-+ Editor: [JetBrain IDEA](https://www.jetbrains.com/idea/)
-+ Repositories: [GitHub](https://github.com)
-+ Notes: [Notion](https://www.notion.so/)
-
 ## Links
 
 > [GitHub](https://github.com/Kendieer/CustomMinesweeper)
