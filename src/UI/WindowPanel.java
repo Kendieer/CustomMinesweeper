@@ -1,7 +1,7 @@
-package UI;
+package ui;
 
-import GameBase.GameLogic;
-import GameBase.MineSweeper;
+import gameBase.GameLogic;
+import gameBase.MineSweeper;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,6 @@
-package GameBase.Elements;
+package gameBase.elements;
 
-import GameBase.GameLogic;
+import gameBase.GameLogic;
 
 public interface ClickEvent {
     void leftClickEvent ( GameLogic gameBase);

@@ -1,6 +1,6 @@
-package GameBase.Elements;
+package gameBase.elements;
 
-import GameBase.GameLogic;
+import gameBase.GameLogic;
 
 public class MineNode extends Node {
     public MineNode ( int x, int y , boolean isPublic ) {

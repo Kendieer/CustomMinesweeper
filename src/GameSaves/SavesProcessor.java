@@ -1,9 +1,9 @@
-package GameSaves;
+package gameSaves;
 
-import GameBase.GameLogic;
-import GameBase.MineSweeper;
-import UI.WindowPanel;
-import UI.WindowSeedLabel;
+import gameBase.GameLogic;
+import gameBase.MineSweeper;
+import ui.WindowPanel;
+import ui.WindowSeedLabel;
 
 import java.io.*;
 

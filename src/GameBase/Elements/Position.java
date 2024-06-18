@@ -1,4 +1,4 @@
-package GameBase.Elements;
+package gameBase.elements;
 
 public class Position {
     public final int X,Y;

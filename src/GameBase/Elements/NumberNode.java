@@ -1,6 +1,6 @@
-package GameBase.Elements;
+package gameBase.elements;
 
-import GameBase.GameLogic;
+import gameBase.GameLogic;
 
 public class NumberNode extends Node {
     public final int VALUE;

@@ -1,6 +1,6 @@
-package GameBase.Elements;
+package gameBase.elements;
 
-import GameBase.GameLogic;
+import gameBase.GameLogic;
 
 public class EmptyNode extends Node {
     protected EmptyNode(int x, int y,boolean isPublic) {

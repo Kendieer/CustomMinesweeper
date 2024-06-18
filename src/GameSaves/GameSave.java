@@ -1,4 +1,4 @@
-package GameSaves;
+package gameSaves;
 
 import java.io.Serializable;
 

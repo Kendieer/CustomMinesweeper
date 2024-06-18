@@ -1,9 +1,9 @@
-package GameBase;
+package gameBase;
 
-import GameBase.Elements.*;
-import GameBase.Util.*;
-import GameSaves.GameSave;
-import UI.*;
+import gameBase.elements.*;
+import gameBase.util.*;
+import gameSaves.GameSave;
+import ui.*;
 
 import java.awt.*;
 

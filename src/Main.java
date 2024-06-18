@@ -1,4 +1,4 @@
-import GameBase.MineSweeper;
+import gameBase.MineSweeper;
 
 public class Main {
     public static void main ( String[] args ) {

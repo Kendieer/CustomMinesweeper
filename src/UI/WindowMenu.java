@@ -1,8 +1,8 @@
-package UI;
+package ui;
 
-import GameBase.MineSweeper;
-import GameBase.Util.GameDefaultSettings;
-import GameSaves.SavesProcessor;
+import gameBase.MineSweeper;
+import gameBase.util.GameDefaultSettings;
+import gameSaves.SavesProcessor;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;

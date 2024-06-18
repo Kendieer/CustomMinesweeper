@@ -1,4 +1,4 @@
-package GameBase.Util;
+package gameBase.util;
 
 public final class GameDefaultSettings {
 

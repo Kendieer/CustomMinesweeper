@@ -1,4 +1,4 @@
-package GameBase.Elements;
+package gameBase.elements;
 
 public enum GameStatus {
     NoCache, // 无地图缓存

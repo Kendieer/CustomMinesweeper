@@ -1,10 +1,10 @@
-package GameBase.Util;
+package gameBase.util;
 
-import GameBase.Elements.EmptyNode;
-import GameBase.Elements.MineNode;
-import GameBase.Elements.Node;
-import GameBase.Elements.NumberNode;
-import GameBase.Elements.Position;
+import gameBase.elements.EmptyNode;
+import gameBase.elements.MineNode;
+import gameBase.elements.Node;
+import gameBase.elements.NumberNode;
+import gameBase.elements.Position;
 
 import java.util.Arrays;
 

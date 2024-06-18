@@ -1,9 +1,9 @@
-package GameBase;
+package gameBase;
 
-import GameBase.Util.GameDefaultSettings;
-import GameBase.Util.LinearRandom;
-import UI.WindowFrame;
-import UI.WindowSeedLabel;
+import gameBase.util.GameDefaultSettings;
+import gameBase.util.LinearRandom;
+import ui.WindowFrame;
+import ui.WindowSeedLabel;
 
 public final class MineSweeper {
     private MineSweeper(){}

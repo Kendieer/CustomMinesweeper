@@ -1,13 +1,13 @@
-package UI;
+package ui;
 
-import GameBase.Elements.NodeTypes;
-import GameBase.MineSweeper;
+import gameBase.elements.NodeTypes;
+import gameBase.MineSweeper;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class NodeButton {
-    private JButton button = new JButton();
+    private final JButton button = new JButton();
 
     private final int X,Y;
 

@@ -1,15 +1,15 @@
-package GameBase.Elements;
+package gameBase.elements;
 
 
-import GameBase.GameLogic;
-import UI.WindowPanel;
+import gameBase.GameLogic;
+import ui.WindowPanel;
 
 import java.util.Objects;
 
 public abstract class Node implements ClickEvent {
-    protected NodeTypes type;
+    protected final NodeTypes type;
 
-    Position POSITION;
+    final Position POSITION;
 
     protected boolean isPublic = false;
 

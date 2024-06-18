@@ -1,4 +1,4 @@
-package GameBase.Elements;
+package gameBase.elements;
 
 public enum NodeTypes {
     Empty,
