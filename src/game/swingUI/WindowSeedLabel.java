@@ -2,6 +2,10 @@ package game.swingUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ContainerAdapter;
+import java.awt.event.ContainerEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public final class WindowSeedLabel {
     private static final WindowSeedLabel STATIC_SEED_LABEL = new WindowSeedLabel();
@@ -26,6 +30,21 @@ public final class WindowSeedLabel {
         SEED_CONFIRM_BUTTON.setEnabled( true );
         SEED_CONFIRM_BUTTON.setBounds( 250,10,100,20 );
         SEED_CONFIRM_BUTTON.setVisible( true );
+
+        // add Listener
+        SEED_LABEL.addKeyListener( new KeyAdapter() {
+            @Override
+            public void keyReleased ( KeyEvent e ) {
+                updateSeedLabelField();
+            }
+        } );
+    }
+
+    private void updateSeedLabelField(){
+        String str = SEED_LABEL.getText();
+        if (str.length() > 20){
+            SEED_LABEL.setText( str.substring( 0,20 ) );
+        }
     }
 
     public static WindowSeedLabel getStaticSeedLabel(){
